@@ -1,0 +1,49 @@
+<div class="card">
+    <p-toolbar styleClass="mb-4">
+        <ng-template pTemplate="left">
+            <button pButton pRipple label="Agregar cuenta" icon="pi pi-plus" class="p-button-success mr-2" (click)="showAltaCuenta()"></button>
+        </ng-template>
+        <ng-template pTemplate="right">
+            <button pButton type="button" label="Depósito" (click)="showDeposito()" style="margin: 5px;"></button>
+            <button pButton type="button" label="Retiro" (click)="showRetiro()" style="margin: 5px;"></button>
+            <button pButton type="button" label="Movimientos" (click)="showMovimientos()" style="margin: 5px;"></button>
+        </ng-template>
+    </p-toolbar>
+
+    <p-table [value]="cuentas">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Número de cuenta</th>
+                <th>Saldo</th>
+                <th>fecha ultima actualización</th>
+                <th>Estatus</th>
+                <th>ID cliente</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-cuenta>
+            <tr>
+                <td>{{cuenta.numeroCuenta}}</td>
+                <td>{{cuenta.saldo}}</td>
+                <td>{{cuenta.fechaUltimaAct}}</td>
+                <td>{{cuenta.estado}}</td>
+                <td>{{cuenta.idCliente}}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
+
+<p-dialog header="Crear cuenta" [(visible)]="displayAltaCuenta">
+    <app-alta-cuenta [idCliente]=idCliente (cuentaAgregadaEvent)="CuentaAgregada($event)"></app-alta-cuenta>
+</p-dialog>
+
+<p-dialog header="Deposito" [(visible)]="displayDeposito">
+    <app-deposito [idCliente]=idCliente (depositoRealizadoEvent)="DepositoRealizado($event)"></app-deposito>
+</p-dialog>
+
+<p-dialog header="Retiro" [(visible)]="displayRetiro">
+    <app-retiro [idCliente]=idCliente (retiroRealizadoEvent)="RetiroRealizado($event)"></app-retiro>
+</p-dialog>
+
+<p-dialog header="Movimientos" [(visible)]="displayMovimientos">
+    <app-movimientos [idCliente]=idCliente></app-movimientos>
+</p-dialog>

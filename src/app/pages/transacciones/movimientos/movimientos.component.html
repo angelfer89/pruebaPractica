@@ -1,0 +1,38 @@
+
+ <div class="field col-12" style="margin: 30px;">
+    <span class="p-float-label">
+        <p-dropdown [options]="cuentas" [(ngModel)]="cuentaSeleccionada" optionLabel="numeroCuenta" 
+                    optionDisabled="inactive" optionValue="numeroCuenta" placeholder="Selecionar cuenta"></p-dropdown>
+        <button pButton type="button" label="Consultar" (click)="ObtenerTransacciones()"></button>
+    </span>
+   
+</div>
+
+<br>
+<br>
+<br>
+<br>
+
+<p-table [value]="movimientos">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Fecha último movimiento</th>
+            <th>Monto</th>
+            <th>Número de cuenta</th>
+            <th>Terminal</th>
+            <th>Tipo</th>
+            <th>Usuario</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-movimiento>
+        <tr>
+            <td>{{movimiento.fechaUltimaAct}}</td>
+            <td>{{movimiento.monto}}</td>
+            <td>{{movimiento.numeroCuenta}}</td>
+            <td>{{movimiento.terminal}}</td>
+            <td>{{movimiento.tipo}}</td>
+            <td>{{movimiento.usuario}}</td>
+        </tr>
+    </ng-template>
+</p-table>
+

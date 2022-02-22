@@ -1,0 +1,34 @@
+<div class="card">
+    <p-toolbar styleClass="mb-4">
+        <ng-template pTemplate="left">
+            <button pButton pRipple label="Agregar cliente" icon="pi pi-plus" class="p-button-success mr-2" (click)="showAltaCliente()"></button>
+        </ng-template>
+    </p-toolbar>
+
+    <p-table [value]="clientes">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Nombre</th>
+                <th>ID</th>
+                <th>Dirección</th>
+                <th>Edad</th>
+                <th>Genero</th>
+                <th></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-cliente>
+            <tr>
+                <td>{{cliente.nombre}}</td>
+                <td>{{cliente.id}}</td>
+                <td>{{cliente.direccion}}</td>
+                <td>{{cliente.edad}}</td>
+                <td>{{cliente.genero}}</td>
+                <td><button pButton type="button" label="Cuentas" [routerLink]="['/cuentas/', cliente.id]"></button></td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
+
+<p-dialog header="Crear cuenta" [(visible)]="displayAltaCliente">
+    <app-alta-cliente (clienteAgregadoEvent)="ClienteAgregado($event)"></app-alta-cliente>
+</p-dialog>

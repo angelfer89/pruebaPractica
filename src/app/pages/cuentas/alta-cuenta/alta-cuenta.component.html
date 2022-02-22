@@ -1,0 +1,26 @@
+<p-card [style]="{width: 'width'}" styleClass="styleClass">
+
+    <span class="p-float-label">
+        <input id="float-input" type="text" pInputText [(ngModel)]="cuenta.idCliente"> 
+        <label for="float-input">ID Cliente</label>
+    </span>
+
+    <br>
+
+    <span class="p-float-label">
+        <input id="float-input" type="text" pInputText [(ngModel)]="cuenta.numeroCuenta"> 
+        <label for="float-input">Número de cuenta</label>
+    </span>
+
+    <br>
+
+    <span class="p-float-label">
+        <input id="float-input" type="text" pInputText [(ngModel)]="cuenta.saldo"> 
+        <label for="float-input">Saldo</label>
+    </span>
+
+    <p-footer>
+        <button pButton type="button" label="Realizar alta de cuenta" (click)="AgregarCuenta()"></button>
+    </p-footer>
+</p-card>
+

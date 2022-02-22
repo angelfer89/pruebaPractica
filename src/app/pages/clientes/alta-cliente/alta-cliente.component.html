@@ -1,0 +1,38 @@
+<p-card [style]="{width: 'width'}" styleClass="styleClass">
+
+    <span class="p-float-label">
+        <input id="float-input" type="text" pInputText [(ngModel)]="cliente.nombre"> 
+        <label for="float-input">Nombre</label>
+    </span>
+
+    <br>
+
+    <span class="p-float-label">
+        <input id="float-input" type="text" pInputText [(ngModel)]="cliente.id"> 
+        <label for="float-input">ID</label>
+    </span>
+
+    <br>
+
+    <span class="p-float-label">
+        <input id="float-input" type="text" pInputText [(ngModel)]="cliente.direccion"> 
+        <label for="float-input">Dirección</label>
+    </span>
+
+    <br>
+
+    <span class="p-float-label">
+        <input id="float-input" type="text" pInputText [(ngModel)]="cliente.edad"> 
+        <label for="float-input">Edad</label>
+    </span>
+
+    <br>
+
+    <p-radioButton name="generos" label="Masculino" value="Masculino" [(ngModel)]="cliente.genero"></p-radioButton>
+    <p-radioButton name="generos" label="Femenino" value="Femenino" [(ngModel)]="cliente.genero"></p-radioButton>
+
+    <p-footer>
+        <button pButton type="button" label="Realizar alta de cuenta" (click)="AgregarCliente()"></button>
+    </p-footer>
+</p-card>
+

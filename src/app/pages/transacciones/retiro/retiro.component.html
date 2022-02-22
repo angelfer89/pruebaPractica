@@ -1,0 +1,25 @@
+
+    <div class="p-fluid grid">
+        
+        <div class="field col-12" style="margin: 30px;">
+            <span class="p-float-label">
+                <p-dropdown [options]="cuentas" [(ngModel)]="cuentaSeleccionada" optionLabel="numeroCuenta" 
+                            optionDisabled="inactive" optionValue="numeroCuenta" placeholder="Selecionar cuenta"></p-dropdown>
+            </span>
+        </div>
+
+        <div class="field col-12" style="margin: 30px;">
+            <span class="p-float-label">
+            <input id="float-input" type="text" pInputText  [(ngModel)]="movimiento.monto"> 
+            <label for="float-input">Monto</label>
+        </span>
+        </div>
+        
+
+        <p-footer>
+            <button pButton type="button" label="Realizar retiro" (click)="RealizarRetiro()"></button>
+        </p-footer>
+
+    </div>
+
+
